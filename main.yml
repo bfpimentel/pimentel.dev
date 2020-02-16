@@ -1,0 +1,29 @@
+name: Flutter Portfolio
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  build:
+    name: Building Web App
+    env:
+      my_secret: ${{secrets.commit_secret}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'dev'
+      - run: flutter config --enable-web
+      - run: flutter pub get
+      - run: flutter build web --release
+      - run: |
+          cd build/web
+          git init
+          git config --global user.email bruno@pimentel.dev
+          git config --global user.name Bruno Pimentel
+          git status -sb
+          git remote add origin https://${{secrets.commit_secret}}@github.com/bfpimentel/bfpimentel.github.io.git
+          git add --all
+          git commit -m "updating web app"
+          git push origin master -f
