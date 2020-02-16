@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/image_button.dart';
+import 'package:portfolio/social_group.dart';
 
 class Home extends StatelessWidget {
   const Home({
@@ -46,6 +48,8 @@ class Home extends StatelessWidget {
                 'all inside MVP and MVVM architectures and covered by SonarQube.',
                 style: Theme.of(context).textTheme.bodyText1,
               ),
+              const Padding(padding: const EdgeInsets.only(top: 24)),
+              const SocialGroup()
             ],
           ),
         ),
