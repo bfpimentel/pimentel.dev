@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'home.dart';
+import 'package:portfolio/screens/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,6 +12,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Roboto',
         scaffoldBackgroundColor: Color(0xFF191919),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.white,
+        ),
         textTheme: TextTheme(
           bodyText1: TextStyle(),
           bodyText2: TextStyle(),
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
           bodyColor: Colors.white,
         ),
       ),
-      home: Home(),
+      home: const Home(),
     );
   }
 }

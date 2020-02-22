@@ -31,16 +31,14 @@ class ImageButton extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return SizedBox(
-      width: 32,
-      height: 32,
-      child: FlatButton(
-        padding: EdgeInsets.all(0),
+      width: 40,
+      height: 40,
+      child: FloatingActionButton(
         onPressed: _handleOnPressed,
         child: Container(
+          width: 24,
+          height: 24,
           decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(width: 0),
-            shape: BoxShape.circle,
             image: DecorationImage(
               image: ExactAssetImage(assetName),
             ),
