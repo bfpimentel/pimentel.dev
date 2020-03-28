@@ -13,4 +13,9 @@ class Links {
   static const gmail = 'bruno@pimentel.dev';
   static const instagram = 'https://instagram.com/pimentel.dev/';
   static const facebook = 'https://facebook.com/bfpimentel/';
+
+  static const guideline = 'https://github.com/bfpimentel/java-capptan';
+  static const mentoring = 'https://github.com/bfpimentel/treinamento-kotlin';
+  static const marvel = 'https://github.com/bfpimentel/marvel-app';
+  static const portfolio = 'https://github.com/bfpimentel/bfpimentel.github.io/';
 }

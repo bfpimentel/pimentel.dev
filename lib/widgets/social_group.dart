@@ -11,27 +11,27 @@ class SocialGroup extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        const ImageButton(
+        const _ImageButton(
           assetName: Images.github,
           urlAddress: Links.github,
         ),
         Padding(padding: EdgeInsets.all(12)),
-        const ImageButton(
+        const _ImageButton(
           assetName: Images.linkedIn,
           urlAddress: Links.linkedIn,
         ),
         Padding(padding: EdgeInsets.all(12)),
-        const ImageButton(
+        const _ImageButton(
           assetName: Images.gmail,
           mailAddress: Links.gmail,
         ),
         Padding(padding: EdgeInsets.all(12)),
-        const ImageButton(
+        const _ImageButton(
           assetName: Images.instagram,
           urlAddress: Links.instagram,
         ),
         Padding(padding: EdgeInsets.all(12)),
-        const ImageButton(
+        const _ImageButton(
           assetName: Images.facebook,
           urlAddress: Links.facebook,
         ),
@@ -40,8 +40,8 @@ class SocialGroup extends StatelessWidget {
   }
 }
 
-class ImageButton extends StatelessWidget {
-  const ImageButton({
+class _ImageButton extends StatelessWidget {
+  const _ImageButton({
     @required final this.assetName,
     final this.urlAddress,
     final this.mailAddress,
@@ -51,7 +51,7 @@ class ImageButton extends StatelessWidget {
   final String urlAddress;
   final String mailAddress;
 
-  _handleOnPressed() async {
+  void _handleOnPressed() async {
     if (urlAddress != null && await canLaunch(urlAddress)) {
       await launch(urlAddress);
       return;

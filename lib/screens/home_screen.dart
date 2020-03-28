@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/widgets/my_projects.dart';
 import 'package:portfolio/widgets/profile_title.dart';
 import 'package:portfolio/widgets/profile_info.dart';
 import 'package:portfolio/widgets/social_group.dart';
@@ -17,6 +18,7 @@ class HomeScreen extends StatelessWidget {
         children: <Widget>[
           const ProfileTitle(),
           const ProfileInfo(),
+          const MyProjects(),
           const SocialGroup(),
         ],
       ),

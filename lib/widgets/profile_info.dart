@@ -19,15 +19,13 @@ class ProfileInfo extends StatelessWidget {
           Text(
             'Brazilian, ${yearsOld}yo.\n'
             'Fast learner and self-taught.\n'
-            'I seek getting better day after day.\n'
-            'Working to influence people positively.',
+            'Working to learn something new every day.',
             style: Theme.of(context).textTheme.bodyText1,
           ),
           Container(height: 24),
           Text(
-            'I have been working with Kotlin/Java Android development '
-            'with well-known APIs such as RxJava, Retrofit2, Dagger2, JUnit, etc. '
-            'all inside MVP and MVVM architectures and covered by SonarQube.',
+            'I have been working with Kotlin/Java Android development for some time,'
+            'with well-known APIs. Also worked with Flutter. ',
             style: Theme.of(context).textTheme.bodyText1,
           ),
         ],

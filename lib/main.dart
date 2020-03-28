@@ -26,7 +26,9 @@ class MyApp extends StatelessWidget {
           bodyColor: Colors.white,
         ),
       ),
-      home: const HomeScreen(),
+      home: Material(
+        child: const HomeScreen(),
+      ),
     );
   }
 }
