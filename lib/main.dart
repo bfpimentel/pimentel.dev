@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/home.dart';
+import 'package:portfolio/screens/home_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           bodyColor: Colors.white,
         ),
       ),
-      home: const Home(),
+      home: const HomeScreen(),
     );
   }
 }
