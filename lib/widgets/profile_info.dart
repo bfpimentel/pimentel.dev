@@ -24,7 +24,7 @@ class ProfileInfo extends StatelessWidget {
           ),
           Container(height: 24),
           Text(
-            'I have been working with Kotlin/Java Android development for some time,'
+            'I have been working with Kotlin/Java Android development for some time, '
             'with well-known APIs. Also worked with Flutter. ',
             style: Theme.of(context).textTheme.bodyText1,
           ),
