@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_builder/responsive_builder.dart';
-
-import 'desktop_home.dart';
-import 'mobile_home.dart';
+import '../widgets/profile_info.dart';
+import '../widgets/profile_title.dart';
+import '../widgets/social_group.dart';
 
 class Home extends StatelessWidget {
   const Home();
 
   @override
   Widget build(final BuildContext context) {
-    return ResponsiveBuilder(
-      builder: (context, sizingInformation) => Scaffold(
-        body: ListView(
-          children: <Widget>[
-            Expanded(
-              child: ScreenTypeLayout(
-                mobile: const MobileHome(),
-                desktop: const DesktopHome(),
-              ),
-            ),
-          ],
-        ),
+    return Scaffold(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          const ProfileTitle(),
+          const ProfileInfo(),
+          const SocialGroup(),
+        ],
       ),
     );
   }

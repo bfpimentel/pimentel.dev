@@ -1,8 +1,8 @@
 name: Flutter Portfolio
 on:
   push:
-    branches:
-      - develop
+    tags:
+      - '*'
 jobs:
   build:
     name: Building Web App
