@@ -18,6 +18,7 @@ class MyProjects extends StatelessWidget {
           _HyperlinkedText(text: '[October/2018] Guidelines App: My First App on Github.', url: Links.guideline),
           _HyperlinkedText(text: "[December/2019] Kotlin Mentoring: Some important topics that I wrote about and lectured to my work partners.", url: Links.mentoring),
           _HyperlinkedText(text: "[December/2019] Marvel App: Android App using Marvel's API, Clean Architecture and Travis CI.", url: Links.marvel),
+          _HyperlinkedText(text: "[January/2020] Android Docker Images: Repository with some Docker images for Android CI.", url: Links.dockerImages),
           _HyperlinkedText(text: '[March/2020] Portfolio: This page, made with Flutter Web and Github Actions.', url: Links.portfolio)
         ],
       ),
