@@ -9,18 +9,23 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
+    const divider = const Divider(height: 32);
+
     return Container(
-      padding: EdgeInsets.all(32),
       color: Color(0xFF191919),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          const ProfileTitle(),
-          const ProfileInfo(),
-          const MyProjects(),
-          const SocialGroup(),
-        ],
+      child: SingleChildScrollView(
+        padding: EdgeInsets.all(32),
+        child: Column(
+          children: <Widget>[
+            const ProfileTitle(),
+            divider,
+            const ProfileInfo(),
+            divider,
+            const MyProjects(),
+            divider,
+            const SocialGroup(),
+          ],
+        ),
       ),
     );
   }
