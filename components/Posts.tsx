@@ -4,7 +4,7 @@ import styles from "@/styles/Posts.module.css";
 function Posts() {
   return (
     <>
-      <p className={styles.description}>Last Posts</p>
+      <p className={styles.description}>Latest Blog Posts</p>
 
       <div className={styles.grid}>
         <a href="https://nextjs.org/docs" className={styles.card}>
