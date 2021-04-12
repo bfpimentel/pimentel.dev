@@ -23,5 +23,6 @@
 }
 
 .photo {
+  size: 150px;
   border-radius: 50%;
 }
