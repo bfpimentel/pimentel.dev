@@ -4,7 +4,6 @@
   justify-content: center;
   flex-wrap: wrap;
   max-width: 800px;
-  margin-top: 1rem;
 }
 
 .card {
@@ -36,4 +35,15 @@
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
+}
+
+.latest_projects {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
 }
