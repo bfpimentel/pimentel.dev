@@ -1,5 +1,6 @@
 .projects_container {
   border-top: 1px solid #eaeaea;
+  max-width: 800px;
   justify-content: center;
   align-items: center;
 }
