@@ -1,12 +1,16 @@
 import React from "react";
-import linkedin from "@/assets/linkedin.png";
 import styles from "@/styles/SocialButton.module.css";
 
-function SocialButton() {
+type SocialButtonProps = {
+  link: string;
+  imgSrc: string;
+};
+
+function SocialButton({ link, imgSrc }: SocialButtonProps) {
   return (
     <button className={styles.social_button}>
-      <a href="https://www.linkedin.com/in/bfpimentel/">
-        <img src={linkedin} />
+      <a href={link}>
+        <img src={imgSrc} />
       </a>
     </button>
   );

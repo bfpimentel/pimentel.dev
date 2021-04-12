@@ -1,19 +1,17 @@
 import React from "react";
 import SocialButton from "@/components/SocialButton";
+import linkedin from "@/assets/linkedin.png";
+import github from "@/assets/github.png";
 import styles from "@/styles/Footer.module.css";
 
 function Footer() {
   return (
     <footer className={styles.footer}>
-      <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Powered by{" "}
-        <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-      </a>
-      <SocialButton />
+      <SocialButton
+        imgSrc={linkedin}
+        link="https://linkedin.com/in/bfpimentel/"
+      />
+      <SocialButton imgSrc={github} link="https://github.com/bfpimentel/" />
     </footer>
   );
 }
