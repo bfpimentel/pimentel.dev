@@ -1,4 +1,5 @@
 import React from "react";
+import SocialButton from "@/components/SocialButton";
 import styles from "@/styles/Footer.module.css";
 
 function Footer() {
@@ -12,6 +13,7 @@ function Footer() {
         Powered by{" "}
         <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
       </a>
+      <SocialButton />
     </footer>
   );
 }

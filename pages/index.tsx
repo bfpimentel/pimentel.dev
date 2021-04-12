@@ -11,9 +11,7 @@ function Home() {
         <title>Bruno Pimentel</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Main />
-
       <Footer />
     </div>
   );
