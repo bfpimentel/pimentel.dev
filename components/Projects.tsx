@@ -3,7 +3,7 @@ import styles from "@/styles/Projects.module.css";
 
 function Projects() {
   return (
-    <>
+    <div className={styles.projects_container}>
       <p className={styles.latest_projects}>Latest Projects</p>
 
       <div className={styles.grid}>
@@ -28,7 +28,7 @@ function Projects() {
           </p>
         </a>
       </div>
-    </>
+    </div>
   );
 }
 
