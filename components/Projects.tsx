@@ -7,8 +7,6 @@ type ProjectsProps = {
 };
 
 function Projects({ projects }: ProjectsProps) {
-  console.log(projects);
-
   return (
     <div className={styles.projects_container}>
       <p className={styles.latest_projects}>Latest Projects</p>
