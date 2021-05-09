@@ -10,7 +10,9 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/styles/*": ["styles/*"],
-      "@/assets/*": ["assets/*"]
+      "@/assets/*": ["assets/*"],
+      "@/data/*": ["data/*"],
+      "@/entity/*": ["entity/*"],
     },
     "typeRoots": ["node_modules/@types", "src/types"],
     "target": "es5",

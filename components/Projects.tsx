@@ -1,32 +1,23 @@
 import React from "react";
+import Project from "@/entity/Project";
 import styles from "@/styles/Projects.module.css";
 
-function Projects() {
+type ProjectsProps = {
+  projects: Project[];
+};
+
+function Projects({ projects }: ProjectsProps) {
   return (
     <div className={styles.projects_container}>
       <p className={styles.latest_projects}>Latest Projects</p>
 
       <div className={styles.grid}>
-        <a
-          href="https://github.com/bfpimentel/chuck-norris-app"
-          className={styles.card}
-        >
-          <h3>Chuck Norris App &rarr;</h3>
-          <p>
-            Android project in Kotlin with Flow, Coroutines, MVI, Clean
-            Architecture and Modularization.
-          </p>
-        </a>
-
-        <a
-          href="https://github.com/bfpimentel/pimentel.dev"
-          className={styles.card}
-        >
-          <h3>This Portfolio &rarr;</h3>
-          <p>
-            Project made with Next.js written in Typescript. Work in progress.
-          </p>
-        </a>
+        {projects.map((project) => (
+          <a href={project.link} className={styles.card}>
+            <h3>{project.name}</h3>
+            <p>{project.description}</p>
+          </a>
+        ))}
       </div>
     </div>
   );
