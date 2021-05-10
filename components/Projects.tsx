@@ -7,7 +7,7 @@ type ProjectsProps = {
 
 export default function Projects({ projects }: ProjectsProps) {
   return (
-    <div className="border-t border-white border-opacity-10 content-center items-center max-w-4xl">
+    <div className="border-t content-center items-center max-w-4xl border-black border-opacity-10 dark:border-white dark:border-opacity-10">
       <p className="text-center text-2xl m-5">Latest Projects</p>
 
       <div className="grid md:grid-cols-2 sm:grid-cols-1 items-stretch content-center flex-wrap h-auto max-w-4xl">
@@ -18,7 +18,8 @@ export default function Projects({ projects }: ProjectsProps) {
             href={project.link}
             className="
               mt-0 ml-4 mb-4 mr-4 text-left border-solid border rounded-lg 
-              transition-colors duration-500 ease-in-out border-white border-opacity-10 text-white hover:border-blue-500 hover:text-blue-600
+              border-black border-opacity-10 dark:border-white dark:border-opacity-10 dark:text-white
+              transition-colors duration-500 ease-in-out hover:border-blue-500 hover:text-blue-600
               "
           >
             <h3 className="ml-4 mt-4 mr-4 mb-0 font-bold text-2xl">

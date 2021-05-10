@@ -7,9 +7,9 @@ type SocialButtonProps = {
 
 export default function SocialButton({ link, imgSrc }: SocialButtonProps) {
   return (
-    <button className="h-8 w-8 p-1 border-0 rounded-lg ml-2 mr-2 bg-white">
+    <button className="h-8 w-8 border-1 rounded-lg ml-2 mr-2 bg-white">
       <a href={link}>
-        <img className="h-6 w-6" src={imgSrc} />
+        <img className="h-8 w-8" src={imgSrc} />
       </a>
     </button>
   );

@@ -1,9 +1,14 @@
 import React from "react";
 import SocialButton from "@/components/SocialButton";
 
-export default function Footer() {
+type FooterProps = {
+  onSwitchClick: () => void;
+  theme: string;
+};
+
+export default function Footer({ onSwitchClick, theme }: FooterProps) {
   return (
-    <footer className="grid justify-items-center max-w-4xl w-full h-full border-t border-white border-opacity-10 p-6">
+    <footer className="flex justify-between max-w-4xl w-full h-full border-t p-5 border-black border-opacity-10 dark:border-white dark:border-opacity-10">
       <div>
         <SocialButton
           imgSrc="/linkedin.svg"
@@ -14,6 +19,13 @@ export default function Footer() {
           link="https://github.com/bfpimentel/"
         />
       </div>
+
+      <button
+        onClick={onSwitchClick}
+        className="p-2 rounded-md font-bold bg-black text-white dark:bg-white dark:text-black"
+      >
+        Give me {theme === "light" ? "Darkness" : "Light"}
+      </button>
     </footer>
   );
 }
