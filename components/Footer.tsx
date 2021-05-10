@@ -9,7 +9,7 @@ type FooterProps = {
 export default function Footer({ onSwitchClick, theme }: FooterProps) {
   return (
     <footer className="flex justify-between max-w-4xl w-full h-full border-t p-5 border-black border-opacity-10 dark:border-white dark:border-opacity-10">
-      <div>
+      <div className="pt-1">
         <SocialButton
           imgSrc="/linkedin.svg"
           link="https://linkedin.com/in/bfpimentel/"

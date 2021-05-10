@@ -5,7 +5,7 @@ export default function Header() {
     <>
       <img
         className="h-52 w-52 rounded-full"
-        src="https://github.com/bfpimentel.png?size=208"
+        src="https://github.com/bfpimentel.png?size=512"
         alt="Profile Picture"
       />
       <h2 className="m-3 leading-5 text-4xl font-bold">Bruno Pimentel</h2>
