@@ -1,19 +1,16 @@
 import React from "react";
-import styles from "@/styles/SocialButton.module.css";
 
 type SocialButtonProps = {
   link: string;
   imgSrc: string;
 };
 
-function SocialButton({ link, imgSrc }: SocialButtonProps) {
+export default function SocialButton({ link, imgSrc }: SocialButtonProps) {
   return (
-    <button className={styles.social_button}>
+    <button className="h-8 w-8 p-1 border-0 rounded-lg ml-2 mr-2 bg-white">
       <a href={link}>
-        <img src={imgSrc} />
+        <img className="h-6 w-6" src={imgSrc} />
       </a>
     </button>
   );
 }
-
-export default SocialButton;

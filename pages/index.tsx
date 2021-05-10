@@ -1,15 +1,15 @@
 import React from "react";
 import { InferGetStaticPropsType } from "next";
 import { getProjects } from "@/data/repository/GithubRepository";
-import Project from "@/entity/Project";
 import Head from "next/head";
 import Footer from "@/components/Footer";
 import Main from "@/components/Main";
-import styles from "@/styles/Home.module.css";
 
-function Home({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({
+  projects,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className={styles.container}>
+    <div className="flex flex-col items-center justify-center min-h-screen py-0 px-2">
       <Head>
         <title>Bruno Pimentel</title>
         <link rel="icon" href="/favicon.ico" />
@@ -33,7 +33,6 @@ export const getStaticProps = async () => {
         };
       }),
     },
+    revalidate: 3600,
   };
 };
-
-export default Home;
