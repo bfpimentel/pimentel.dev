@@ -12,14 +12,15 @@ export default function Projects({ projects }: ProjectsProps) {
 
       <div className="grid md:grid-cols-2 sm:grid-cols-1 items-stretch content-center flex-wrap h-auto max-w-4xl">
         {projects.map((project) => (
-          /* transition: color 0.15s ease, border-color 0.15s ease; */
           <a
             key={project.name}
             href={project.link}
             className="
               mt-0 ml-4 mb-4 mr-4 text-left border-solid border rounded-lg 
               border-black border-opacity-10 dark:border-white dark:border-opacity-10 dark:text-white
-              transition-colors duration-500 ease-in-out hover:border-blue-500 hover:text-blue-600
+              transition-colors duration-500 ease-in-out 
+              hover:border-blue-500 hover:text-blue-600 dark:hover:border-blue-500 dark:hover:text-blue-600
+              focus:border-blue-500 focus:text-blue-600 dark:focus:border-blue-500 dark:focus:text-blue-600
               "
           >
             <h3 className="ml-4 mt-4 mr-4 mb-0 font-bold text-2xl">
