@@ -10,8 +10,8 @@ export default function Header() {
       />
       <h2 className="m-3 leading-5 text-4xl font-bold">Bruno Pimentel</h2>
       <h3 className="m-3 text-center text-2xl">
-        Senior Android Engineer
-        <br />@ Cornershop by Uber
+        Software Engineer, Android
+        <br />@ League
       </h3>
       <h3 className="mb-5 text-center text-2xl">
         Self-taught. Adaptable. Challenge seeker.
