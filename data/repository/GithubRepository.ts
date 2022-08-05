@@ -1,5 +1,7 @@
-import { getPinnedRepositories } from "@/data/source/GithubDataSource";
+import { getPinnedRepositories, getShortenedURLsGist } from "@/data/source/GithubDataSource";
 import ProjectModel from "@/data/model/ProjectModel";
+import ShortenedURLModel from "../model/ShortenedURLModel";
+import { isConstValueNode } from "graphql";
 
 export async function getProjects(): Promise<ProjectModel[]> {
   const data = await getPinnedRepositories();
@@ -13,6 +15,22 @@ export async function getProjects(): Promise<ProjectModel[]> {
       };
 
       return project;
+    }
+  );
+}
+
+export async function getShortenedURLs(): Promise<ShortenedURLModel[]> {
+  const data = await getShortenedURLsGist();
+  const shortenedURLs = JSON.parse(data.user.gist.files[0].text);
+
+  return shortenedURLs.map(
+    (file: { short: string; url: string }) => {
+      const shortenedURL: ShortenedURLModel = {
+        short: file.short,
+        url: file.url
+      }
+
+      return shortenedURL;
     }
   );
 }
