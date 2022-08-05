@@ -11,7 +11,7 @@ export async function getGithubProfile(): Promise<ProfileModel> {
       const project: ProjectModel = {
         name: repository.name,
         description: repository.description,
-        link: `https://github.com/bfpimentel/${repository.name}`,
+        link: `https://github.com/${process.env.GITHUB_USERNAME}/${repository.name}`,
       };
 
       return project;
