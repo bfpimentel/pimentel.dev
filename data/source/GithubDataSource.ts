@@ -22,12 +22,12 @@ export const getPinnedRepositories = async () => {
   return data;
 };
 
-export const getShortenedURLsGist = async () => {
+export const getShortenedURLsGist = async () => { 
   const { data } = await client.query({
     query: gql`
       query ShortenedURLsGist {
         user(login: "bfpimentel") {
-          gist(name: "88cd56df17f18936725bb26cfabdaf40") {
+          gist(name: ${process.env.SHORTENED_URLS_GIST_NAME}) {
             description
             files(limit: 1) {
               text
