@@ -11,7 +11,7 @@ export default function Header({ name, photoUrl, bio, role }: HeaderProps) {
   return (
     <>
       <img
-        className="h-52 w-52 rounded-full"
+        className="mb-3 h-52 w-52 rounded-full"
         src={photoUrl}
         alt="Profile Picture"
       />
