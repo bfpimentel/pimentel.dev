@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { InferGetStaticPropsType } from "next";
 import { useTheme } from "next-themes";
-import { getProjects } from "@/data/repository/GithubRepository";
+import { getGithubProfile } from "@/data/repository/GithubRepository";
 import Head from "next/head";
 import Footer from "@/components/Footer";
 import Main from "@/components/Main";
 
 export default function Home({
+  name,
+  photoUrl,
+  bio,
+  role,
   projects,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { theme, setTheme } = useTheme();
@@ -28,18 +32,22 @@ export default function Home({
         <title>Bruno Pimentel</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Main projects={projects} />
+      <Main projects={projects} name={name} photoUrl={photoUrl} bio={bio} role={role}  />
       <Footer onSwitchClick={switchTheme} theme={theme} />
     </div>
   );
 }
 
 export const getStaticProps = async () => {
-  const projectModels = await getProjects();
+  const profile = await getGithubProfile();
 
   return {
     props: {
-      projects: projectModels.map((project) => {
+      name: profile.name,
+      photoUrl: profile.photoUrl,
+      bio: profile.bio,
+      role: profile.role,
+      projects: profile.projects.map((project) => {
         return {
           name: project.name,
           description: project.description,

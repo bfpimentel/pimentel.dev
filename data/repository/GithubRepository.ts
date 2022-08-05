@@ -1,12 +1,12 @@
-import { getPinnedRepositories, getShortenedURLsGist } from "@/data/source/GithubDataSource";
+import { getGitubProfileRawInfo, getShortenedURLsGist } from "@/data/source/GithubDataSource";
 import ProjectModel from "@/data/model/ProjectModel";
-import ShortenedURLModel from "../model/ShortenedURLModel";
-import { isConstValueNode } from "graphql";
+import ProfileModel from "@/data/model/ProfileModel";
+import ShortenedURLModel from "@/data/model/ShortenedURLModel";
 
-export async function getProjects(): Promise<ProjectModel[]> {
-  const data = await getPinnedRepositories();
+export async function getGithubProfile(): Promise<ProfileModel> {
+  const data = await getGitubProfileRawInfo();
 
-  return data.user.pinnedItems.nodes.map(
+  const projects = data.user.pinnedItems.nodes.map(
     (repository: { name: string; description: string }) => {
       const project: ProjectModel = {
         name: repository.name,
@@ -17,6 +17,16 @@ export async function getProjects(): Promise<ProjectModel[]> {
       return project;
     }
   );
+
+  const profile: ProfileModel = {
+    name: data.user.name,
+    photoUrl: data.user.avatarUrl,
+    bio: data.user.bio,
+    role: data.user.company,
+    projects: projects
+  }
+ 
+  return profile;
 }
 
 export async function getShortenedURLs(): Promise<ShortenedURLModel[]> {

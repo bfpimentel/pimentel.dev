@@ -1,10 +1,14 @@
 import { gql } from "@apollo/client";
 import client from "@/data/apollo";
 
-export const getPinnedRepositories = async () => {
-  const GET_PINNED_REPOSITORIES_QUERY = gql`
-    query PinnedRepositories {
-      user(login: "bfpimentel") {
+export const getGitubProfileRawInfo = async () => {
+  const GET_GITHUB_PROFILE_QUERY = gql`
+    query PinnedRepositories($username: String!) {
+      user(login: $username) {
+        name
+        avatarUrl
+        bio
+        company
         pinnedItems(first: 6, types: REPOSITORY) {
           nodes {
             ... on Repository {
@@ -17,15 +21,20 @@ export const getPinnedRepositories = async () => {
     }
   `;
 
-  const { data } = await client.query({ query: GET_PINNED_REPOSITORIES_QUERY });
+  const { data } = await client.query({ 
+    query: GET_GITHUB_PROFILE_QUERY,
+    variables: {
+      "username": process.env.GITHUB_USERNAME
+    }
+  });
   
   return data;
 };
 
-export const getShortenedURLsGist = async () => {  //Dog($breed: String!)
+export const getShortenedURLsGist = async () => {
   const GET_SHORTENED_URLS_GIST_QUERY = gql`
-    query ShortenedURLsGist($gistName: String!) {
-      user(login: "bfpimentel") {
+    query ShortenedURLsGist($username: String!, $gistName: String!) {
+      user(login: $username) {
         gist(name: $gistName) {
           description
           files(limit: 1) {
@@ -38,7 +47,10 @@ export const getShortenedURLsGist = async () => {  //Dog($breed: String!)
 
   const { data } = await client.query({
     query: GET_SHORTENED_URLS_GIST_QUERY,
-    variables: { "gistName": process.env.SHORTENED_URLS_GIST_NAME },
+    variables: { 
+      "username": process.env.GITHUB_USERNAME,
+      "gistName": process.env.SHORTENED_URLS_GIST_NAME 
+    },
   });
 
   return data;
