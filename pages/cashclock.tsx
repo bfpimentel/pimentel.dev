@@ -32,10 +32,12 @@ export default function CashClock() {
         return {
           ...previousState,
           elapsedTime: newElapsedTime,
-          value: currencyFormatter.format((newElapsedTime / 1000) * 10) // todo: add custom multiplier
+          value: currencyFormatter.format((newElapsedTime / 100 / 2) * 0.5555555555) // todo: add custom multiplier
         };
       });
     }, 1);
+
+    // setTimeout(pauseTimer, 60000); // for debugging
   };
 
   const pauseTimer = () => {
