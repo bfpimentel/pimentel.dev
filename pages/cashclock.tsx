@@ -27,7 +27,7 @@ export default function CashClock() {
 
     timer.current = setInterval(() => {
       setState((previousState) => {
-        const newElapsedTime = previousState.elapsedTime + 10;
+        const newElapsedTime = previousState.elapsedTime + 1;
 
         return {
           ...previousState,
@@ -35,7 +35,7 @@ export default function CashClock() {
           value: currencyFormatter.format((newElapsedTime / 1000) * 10) // todo: add custom multiplier
         };
       });
-    }, 10);
+    }, 1);
   };
 
   const pauseTimer = () => {
