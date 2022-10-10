@@ -65,8 +65,8 @@ export default function CashClock() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col items-center justify-center px-0 py-4">
-        <h2 className="m-3 leading-5 text-4xl font-bold">{state.value}</h2>
-        <div className="flex flex-row items-center justify-center">
+        <h1 className="m-3 leading-5 text-8xl font-bold">{state.value}</h1>
+        <div className="flex flex-row m-8 items-center justify-center">
           <button
             className="w-20 p-2 m-4 rounded-md font-bold bg-black text-white dark:bg-white dark:text-black"
             onClick={pauseOrResumeTimer}
