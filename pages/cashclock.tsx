@@ -67,19 +67,20 @@ export default function CashClock() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col items-center justify-center px-0 py-4">
-        <h1 className="m-3 leading-5 text-8xl font-bold">{state.value}</h1>
-        <div className="flex flex-row m-8 items-center justify-center">
+        <img className="w-4/12 h-auto m-8" src="placa.png" alt="Profile Picture" />
+        <h1 className="mt-8 m-3 leading-5 text-9xl font-bold">{state.value}</h1>
+        <div className="flex flex-row m-12 items-center justify-center">
           <button
-            className="w-20 p-2 m-4 rounded-md font-bold bg-black text-white dark:bg-white dark:text-black"
+            className="w-24 p-2 m-4 rounded-md font-bold bg-black text-white dark:bg-white dark:text-black"
             onClick={pauseOrResumeTimer}
           >
-            {state.isPaused ? "Resume" : state.isRunning ? "Pause" : "Start"}
+            {state.isPaused ? "Resumir" : state.isRunning ? "Pausar" : "Começar"}
           </button>
           <button
-            className="w-20 p-2 m-4 rounded-md font-bold bg-black text-white dark:bg-white dark:text-black"
+            className="w-24 p-2 m-4 rounded-md font-bold bg-black text-white dark:bg-white dark:text-black"
             onClick={resetTimer}
           >
-            Reset
+            Zerar
           </button>
         </div>
       </main>
