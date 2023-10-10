@@ -12,7 +12,7 @@ export default function CashClock() {
     value: "R$ 0,00"
   });
 
-  var timer = useRef<NodeJS.Timer>();
+  const timer = useRef<NodeJS.Timer>();
 
   const pauseOrResumeTimer = () => {
     if (state.isPaused) resumeTimer();
