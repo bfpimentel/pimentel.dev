@@ -36,7 +36,7 @@ export default function Lu() {
             Você é obstinada em aprender mais sobre a Igreja Católica, e eu dúvido que você vai parar até o fim da sua vida. Você não hesita em participar dos eventos da igreja. Mesmo que esteja cansada, você vai cumprir com o que se comprometeu.
           </p>
           <p>
-            Você gosta de fazer as coisas do seu jeitinho, e não tem nada de errado nisso. Você se esforça para que as coisas saiam como planejado (mesmo que eu ache que seja impossível em inúmeros casos 💀.
+            Você gosta de fazer as coisas do seu jeitinho, e não tem nada de errado nisso. Você se esforça para que as coisas saiam como planejado (mesmo que eu ache que seja impossível em inúmeros casos 💀).
             Seu aniversário está aí, e, mais uma vez dá pra ver como você se esforça pra fazer tudo ficar perfeito.
           </p>
           <h3 className="text-3xl mt-2 mb-3">No nosso relacionamento, o que mais aprendi com você?</h3>
