@@ -1,10 +1,10 @@
-import { getGitubProfileRawInfo, getShortenedURLsGist } from "@/data/source/GithubDataSource";
+import * as dataSource from "@/data/source/GithubDataSource";
 import ProjectModel from "@/data/model/ProjectModel";
 import ProfileModel from "@/data/model/ProfileModel";
 import ShortenedURLModel from "@/data/model/ShortenedURLModel";
 
 export async function getGithubProfile(): Promise<ProfileModel> {
-  const data = await getGitubProfileRawInfo();
+  const data = await dataSource.getGitubProfileRawInfo();
 
   const projects = data.user.pinnedItems.nodes.map(
     (repository: { name: string; description: string }) => {
@@ -18,19 +18,17 @@ export async function getGithubProfile(): Promise<ProfileModel> {
     }
   );
 
-  const profile: ProfileModel = {
+  return {
     name: data.user.name,
     photoUrl: data.user.avatarUrl,
     bio: data.user.bio,
     role: data.user.company,
     projects: projects
   }
- 
-  return profile;
 }
 
 export async function getShortenedURLs(): Promise<ShortenedURLModel[]> {
-  const data = await getShortenedURLsGist();
+  const data = await dataSource.getShortenedURLsGist();
   const shortenedURLs = JSON.parse(data.user.gist.files[0].text);
 
   return shortenedURLs.map(
