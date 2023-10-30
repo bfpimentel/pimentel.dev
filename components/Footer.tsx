@@ -1,19 +1,11 @@
-import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import SocialButton from "@/components/SocialButton";
 
 export default function Footer() {
   const { theme, setTheme } = useTheme();
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  });
 
   const switchTheme = () => {
-    if (isMounted) {
-      setTheme(theme === "light" ? "dark" : "light");
-    }
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   return (
@@ -22,10 +14,6 @@ export default function Footer() {
         <SocialButton imgSrc="/linkedin.svg" link="https://linkedin.com/in/bfpimentel/" />
         <SocialButton imgSrc="/github.svg" link="https://github.com/bfpimentel/" />
       </div>
-
-      {/* <a className="pt-2" href="https://pimentel.dev">
-        bfmp
-      </a> */}
 
       <button
         onClick={switchTheme}
