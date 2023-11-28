@@ -3,7 +3,7 @@ import { getShortenedURLs } from "@/data/repository/GithubRepository";
 import Head from "next/head";
 
 export const getServerSideProps = async (request: NextApiRequest) => {
-    const short = request.query.short as string;
+    const short = request.query.id as string;
     const urls = await getShortenedURLs();
     const shortenedURLItem = urls.find((item) => item.short === short);
   
