@@ -1,13 +1,9 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
-  purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "selector",
+  content: ["./public/index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
-    fontFamily: {
-      display: ["Roboto"],
-    },
-  },
-  variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/typography')]
-};
+  plugins: [],
+}
