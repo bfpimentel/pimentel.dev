@@ -1,19 +1,13 @@
 import path from "path"
-import { defineConfig, loadEnv } from "vite"
+import { defineConfig } from "vite"
 
 import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 
-// https://vite.dev/config/
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, ".", "")
+export default defineConfig(() => {
   return {
     base: "/",
     plugins: [react(), tailwindcss()],
-    define: {
-      "process.env.GITHUB_PAT": JSON.stringify(env.GITHUB_PAT),
-      "process.env.GIST_ID": JSON.stringify(env.GIST_ID),
-    },
     resolve: {
       alias: [
         {

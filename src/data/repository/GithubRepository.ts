@@ -1,40 +1,100 @@
+import { HTMLElement, parse } from "node-html-parser"
+
 import type ProfileModel from "@/data/model/ProfileModel"
-import type ProjectModel from "@/data/model/ProjectModel"
 import type ShortenedURLModel from "@/data/model/ShortenedURLModel"
-import * as dataSource from "@/data/source/GithubDataSource"
+
+const GET_PROFILE_URL = "https://api.github.com/users/bfpimentel"
+
+type ProfileResponse = {
+  name: string
+  avatar_url: string
+  bio: string
+  company: string
+}
+
+interface RepositoryResponse {
+  author: string
+  name: string
+  description: string
+  language: string
+  languageColor?: string
+  stars?: number
+  forks?: number
+}
 
 export async function getGithubProfile(): Promise<ProfileModel> {
-  const data = await dataSource.getGitubProfileRawInfo()
+  return fetch(GET_PROFILE_URL).then(async (profileResponse) => {
+    const parsedProfile = (await profileResponse.json()) as ProfileResponse
+    const pinnedRepositories = await getPinnedRepositories()
 
-  const projects = data.user.pinnedItems.nodes.map((repository: { name: string; description: string }) => {
-    const project: ProjectModel = {
-      name: repository.name,
-      description: repository.description,
-      link: `https://github.com/bfpimentel/${repository.name}`,
+    return {
+      name: parsedProfile.name,
+      photoUrl: parsedProfile.avatar_url,
+      bio: parsedProfile.bio,
+      role: parsedProfile.company,
+      projects: pinnedRepositories.map((repo) => ({
+        name: repo.name,
+        description: repo.description,
+        link: `https://github.com/bfpimentel/${repo.name}`,
+      })),
     }
-
-    return project
   })
-
-  return {
-    name: data.user.name,
-    photoUrl: data.user.avatarUrl,
-    bio: data.user.bio,
-    role: data.user.company,
-    projects: projects,
-  }
 }
 
 export async function getShortenedURLs(): Promise<ShortenedURLModel[]> {
-  const data = await dataSource.getShortenedURLsGist()
-  const shortenedURLs = JSON.parse(data.user.gist.files[0].text)
+  return []
 
-  return shortenedURLs.map((file: { short: string; url: string }) => {
-    const shortenedURL: ShortenedURLModel = {
-      short: file.short,
-      url: file.url,
+  // const data = await dataSource.getShortenedURLsGist()
+  // const shortenedURLs = JSON.parse(data.user.gist.files[0].text)
+  //
+  // return shortenedURLs.map((file: { short: string; url: string }) => {
+  //   const shortenedURL: ShortenedURLModel = {
+  //     short: file.short,
+  //     url: file.url,
+  //   }
+  //
+  //   return shortenedURL
+  // })
+}
+
+function parseRepository(el: HTMLElement): RepositoryResponse {
+  const repoPath = el.querySelector("a")?.getAttribute("href")?.split("/") || []
+  const [, author = "", name = ""] = repoPath
+
+  const parseMetric = (index: number): number => {
+    try {
+      return Number(el.querySelectorAll("a.pinned-item-meta")[index]?.text?.replace(/\n/g, "").trim()) || 0
+    } catch {
+      return 0
     }
+  }
 
-    return shortenedURL
-  })
+  const languageSpan = el.querySelector("span[itemprop='programmingLanguage']")
+  const languageColorSpan = languageSpan?.parentNode?.querySelector(".repo-language-color")
+
+  return {
+    author,
+    name,
+    description: el.querySelector("p.pinned-item-desc")?.text?.replace(/\n/g, "").trim() || "",
+    language: languageSpan?.text || "",
+    languageColor: languageColorSpan?.getAttribute("style")?.match(/background-color:\s*([^;]+)/)?.[1] || "",
+    stars: parseMetric(0),
+    forks: parseMetric(1),
+  }
+}
+
+async function getPinnedRepositories(): Promise<RepositoryResponse[]> {
+  try {
+    const request = await fetch("https://github.com/bfpimentel", {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+    const html = await request.text()
+    const root = parse(html)
+
+    return root.querySelectorAll(".js-pinned-item-list-item").map((el) => parseRepository(el))
+  } catch {
+    return []
+  }
 }

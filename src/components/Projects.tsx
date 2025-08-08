@@ -7,7 +7,7 @@ type ProjectsProps = {
 export default function Projects({ projects }: ProjectsProps) {
   return (
     <div className="border-t content-center items-center max-w-4xl border-black border-opacity-10 dark:border-white dark:border-opacity-10">
-      <p className="text-center text-2xl m-5">Latest Projects</p>
+      <p className="text-center text-2xl m-5">Favorite Projects</p>
 
       <div className="grid md:grid-cols-2 sm:grid-cols-1 items-stretch content-center flex-wrap h-auto max-w-4xl">
         {projects.map((project) => (
